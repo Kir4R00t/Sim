@@ -1,6 +1,8 @@
 from arrival_generator import run_simulation
 import pandas as pd
 
+# Cały ten plik raczej nie wymaga komentarzy :v
+
 def run_all_scenarios(n_runs):
     scenarios = {
         "base": dict(n_doctors=3, n_nurses=5, n_rooms=2),
@@ -23,6 +25,7 @@ def run_all_scenarios(n_runs):
                     "doctor_wait": (p.seen_by_doctor_time - p.triage_time) if p.seen_by_doctor_time else None,
                     "total_time": (p.departure_time - p.arrival_time) if p.departure_time else None
                 })
+
     return pd.DataFrame(results)
 
 
